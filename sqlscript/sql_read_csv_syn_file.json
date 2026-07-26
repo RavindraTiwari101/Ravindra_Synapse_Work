@@ -1,0 +1,17 @@
+{
+	"name": "sql_read_csv_syn_file",
+	"properties": {
+		"content": {
+			"query": "\n-- Read CSV File \nSELECT * FROM OPENROWSET\n  (\n      BULK 'landing/DM/CM_20260720032233.parquet',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'parquet'\n      -- PARSER_VERSION = '2.0'\n  ) as CSVFile;\n\n-- Read CSV File with filter condition :-\n\nSELECT * FROM OPENROWSET\n  (\n      BULK '/cr-synapsetest/store_20260623.csv',\n      DATA_SOURCE = 'sqlfilehandling',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as CSVFile1 WHERE C7 ='DELHI';\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "clintrial_dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

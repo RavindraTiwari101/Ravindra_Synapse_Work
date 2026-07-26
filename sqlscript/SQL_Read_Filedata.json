@@ -2,7 +2,7 @@
 	"name": "SQL_Read_Filedata",
 	"properties": {
 		"content": {
-			"query": "SELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/jan_customer_FY2024.csv',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as Datafile;\n",
+			"query": "SELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/jan_customer_FY2024.csv',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n\n\nSELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/CM_20260720032233.parquet',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'parquet'\n      -- PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n\n",
 			"metadata": {
 				"language": "sql"
 			},
