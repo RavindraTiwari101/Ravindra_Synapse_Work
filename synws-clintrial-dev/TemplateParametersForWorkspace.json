@@ -8,6 +8,9 @@
 		"synws-clintrial-dev-WorkspaceDefaultSqlServer_connectionString": {
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:synws-clintrial-dev.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
+		"ls_stsynapseclintrial_ext_link_properties_typeProperties_url": {
+			"value": "https://stsynapseclintrial.dfs.core.windows.net/"
+		},
 		"synws-clintrial-dev-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://stsynapseclintrial.dfs.core.windows.net"
 		}
