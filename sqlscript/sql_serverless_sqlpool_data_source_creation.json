@@ -1,13 +1,13 @@
 {
-	"name": "sql_serverless_sqlpool_example",
+	"name": "sql_serverless_sqlpool_data_source_creation",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "--CREATE DATABASE clintrial_dev;\n-- use clintrial_dev\n-- create master key that will protect the credentials:\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Clintrialdev@123'\n\n-- create credentials for containers in our demo storage account\nCREATE DATABASE SCOPED CREDENTIAL sqlondemand\nWITH IDENTITY = 'Managed Identity';\n\n\n\n-- target storeage container\nGO\nCREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (\n    LOCATION = 'https://stsynapseclintrial.blob.core.windows.net',\n    CREDENTIAL = sqlondemand\n);\n\nGO\nCREATE EXTERNAL DATA SOURCE sqlfilehandling WITH (\n    LOCATION = 'https://stclintrialdev1.blob.core.windows.net',\n    CREDENTIAL = sqlondemand\n);",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "master",
+				"databaseName": "clintrial_dev",
 				"poolName": "Built-in"
 			},
 			"resultLimit": 5000
