@@ -1,0 +1,17 @@
+{
+	"name": "sql_dsqlpool_hashkey_copy_into",
+	"properties": {
+		"content": {
+			"query": "-- DISTRIBUTION Type\n--  1) Hash Key \n--  1) ROUND_ROBIN\n--  3) Replicate\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
