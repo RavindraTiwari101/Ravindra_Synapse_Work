@@ -2,7 +2,7 @@
 	"name": "sql_dsqlpool_hashkey_copy_into",
 	"properties": {
 		"content": {
-			"query": "-- DISTRIBUTION Type\n--  1) Hash Key \n--  1) ROUND_ROBIN\n--  3) Replicate\n\ncreate table dbo.VS\n(\n    STUDYID varchar(100),\n    DOMAIN varchar(100),\n    USUBJID varchar(100),\n    VSSEQ varchar(100),\n    VSTESTCD varchar(100),\n    VSTEST varchar(100),\n    VSORRES varchar(100),\n    VSORRESU varchar(100),\n    VISITNUM varchar(100),\n    VISIT varchar(100),\n    VSDTC varchar(100),\n    MoDIFIED_TS  varchar(100)\n)\nWITH\n(\n    DISTRIBUTION = HASH (STUDYID)\n);\nselect * from dbo.VS\nselect COUNT(*) from dbo.VS\n\nCOPY INTO [dbo].[vs] FROM 'https://stsynapseclintrial.blob.core.windows.net/landing/VS.csv'\nWITH (\n   FIELDTERMINATOR=',',\n   ROWTERMINATOR='0x0A'\n) OPTION (LABEL = 'COPY: dbo.VS');\n\n",
+			"query": "-- DISTRIBUTION Type\n--  1) Hash Key \n--  1) ROUND_ROBIN\n--  3) Replicate\n\ncreate table dbo.VS\n(\n    STUDYID varchar(100),\n    DOMAIN varchar(100),\n    USUBJID varchar(100),\n    VSSEQ varchar(100),\n    VSTESTCD varchar(100),\n    VSTEST varchar(100),\n    VSORRES varchar(100),\n    VSORRESU varchar(100),\n    VISITNUM varchar(100),\n    VISIT varchar(100),\n    VSDTC varchar(100),\n    MoDIFIED_TS  varchar(100)\n)\nWITH\n(\n    DISTRIBUTION = HASH (STUDYID)\n);\nselect * from dbo.VS\nselect COUNT(*) from dbo.VS\n\nCOPY INTO [dbo].[vs] FROM 'https://stsynapseclintrial.blob.core.windows.net/landing/VS.csv'\nWITH (\n   FIELDTERMINATOR=',',\n   ROWTERMINATOR='0x0A'\n) OPTION (LABEL = 'COPY: dbo.VS');\n\nDBCC PDW_SHOWSPACEUSED ('dbo.VS')\n\n",
 			"metadata": {
 				"language": "sql"
 			},
