@@ -119,12 +119,32 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"content": {
-					"query": "SELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/jan_customer_FY2024.csv',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n\n\nSELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/CM_20260720032233.parquet',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'parquet'\n      -- PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n  https://stsynapseclintrial.blob.core.windows.net/landing/DM/CM_20260720032233.parquet\n",
+					"query": "SELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/jan_customer_FY2024.csv',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n\n\nSELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/CM_20260720032233.parquet',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'parquet'\n      -- PARSER_VERSION = '2.0'\n  ) as Datafile;\n\n\n",
 					"metadata": {
 						"language": "sql"
 					},
 					"currentConnection": {
 						"databaseName": "clintrial_dev",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/sql_serverless_sqlpool_example')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "master",
 						"poolName": "Built-in"
 					},
 					"resultLimit": 5000
