@@ -1,0 +1,17 @@
+{
+	"name": "sql_serverless_sqlpool_example",
+	"properties": {
+		"content": {
+			"query": "-- https://stclintrialdev1.blob.core.windows.net/cr-synapsetest/customer/region_20260623.csv\n\ncreate table Region\n(\n    region_id int,\n    region_code varchar (100),\n    region_name varchar (100),\n    country varchar (100),\n    sub_region varchar (100),\n    regional_manager varchar (100),\n    created_date date\n)\nWITH\n(\n    DISTRIBUTION = ROUND_ROBIN,\n\n    CLUSTERED COLUMNSTORE INDEX\n);\n\n-- DISTRIBUTION Type\n--  1) Hash Key \n--  1) ROUND_ROBIN\n--  3) Replicate\n\n\n-- drop table Region\nselect * from Region\ninsert into Region\nvalues (1,'IN-N','INDIA NORTH','INDIA','NORTH','Rajesh Kumar','01-01-2023')\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dsp_dev1",
+				"poolName": "dsp_dev1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
