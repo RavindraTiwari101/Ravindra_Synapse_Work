@@ -1,0 +1,17 @@
+{
+	"name": "SQL_DBSet_up",
+	"properties": {
+		"content": {
+			"query": "CREATE DATABASE clintrial_dev;\nuse clintrial_dev\n-- create master key that will protect the credentials:\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Clintrialdev@123'\n\n-- create credentials for containers in our demo storage account\nCREATE DATABASE SCOPED CREDENTIAL sqlondemand\nWITH IDENTITY = 'Managed Identity';\n\nGO\nCREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (\n    LOCATION = 'https://stsynapseclintrial.blob.core.windows.net',\n    CREDENTIAL = sqlondemand\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "clintrial_dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

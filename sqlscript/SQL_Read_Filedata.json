@@ -1,0 +1,17 @@
+{
+	"name": "SQL_Read_Filedata",
+	"properties": {
+		"content": {
+			"query": "SELECT * FROM OPENROWSET\n  (\n      BULK '/landing/DM/jan_customer_FY2024.csv',\n      DATA_SOURCE = 'SqlOnDemandDemo',\n      FORMAT = 'CSV',\n      PARSER_VERSION = '2.0'\n  ) as Datafile;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "clintrial_dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
