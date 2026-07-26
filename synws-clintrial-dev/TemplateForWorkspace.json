@@ -191,7 +191,7 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"content": {
-					"query": "Create SCHEMA landing\nuse  landing\ncreate table landing.VS_Test\nWITH\n    (\n        LOCATION = '/syn-storage-file/jan_customer_FY2024.csv',\n        DATA_SOURCE = sqlfilehandling.\n        FILE_FORMAT = ff_csv\n    )\nAS\nselect * from dba.VS;\n\nhttps://stsynapseclintrial.blob.core.windows.net/syn-storage-file/jan_customer_FY2024.csv\n\nWITH (\n    LOCATION = '/cr-synapsetest/CM_20260720061232.parquet',\n    DATA_SOURCE = sqlfilehandling,\n    FILE_FORMAT = ff_parquet\n);",
+					"query": "Create SCHEMA landing\nuse SCHEMA landing\ncreate table VS_Test\nWITH\n    (\n        LOCATION = '/syn-storage-file/jan_customer_FY2024.csv',\n        DATA_SOURCE = sqlfilehandling,\n        FILE_FORMAT = ff_csv\n        PARSER_VERSION = '2.0'\n    )\nAS\nselect * from dba.VS;\n\nhttps://stsynapseclintrial.blob.core.windows.net/syn-storage-file/jan_customer_FY2024.csv\n\nWITH (\n    LOCATION = '/cr-synapsetest/CM_20260720061232.parquet',\n    DATA_SOURCE = sqlfilehandling,\n    FILE_FORMAT = ff_parquet\n);",
 					"metadata": {
 						"language": "sql"
 					},
