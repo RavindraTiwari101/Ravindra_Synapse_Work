@@ -2,7 +2,7 @@
 	"name": "sql_dedpool_external_link",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "Create SCHEMA landing",
 			"metadata": {
 				"language": "sql"
 			},
